@@ -1,0 +1,56 @@
+  <%
+      fechaHoraInicio = @request.fechaHoraInicio.blank? ? @request.fechaHoraInicio : date_format(@request.fechaHoraInicio)
+      fechaHoraFin = @request.fechaHoraFin.blank? ? @request.fechaHoraFin : date_format(@request.fechaHoraFin)
+  %>
+<div class="page-header">
+  <%= link_to requests_path, class: 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-list-alt"></span>
+    Atras
+  <% end %>
+  <%= link_to edit_request_path(@request), class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-pencil"></span>
+    Editar
+  <% end %>
+  <h1>Vista Completa del Requerimiento</h1>
+</div>
+<dl class="dl-horizontal">
+  <dt>Solicitante:</dt>
+  <dd><%= @request.solicitante %></dd>
+
+  <dt>Descripcion:</dt>
+  <dd><%= @request.descripcion %></dd>
+
+  <dt>Importancia:</dt>
+  <dd><%= @request.importancia %></dd>
+
+  <dt>Mail:</dt>
+  <dd><%= @request.mail %></dd>
+
+  <dt>Parte de Maquina:</dt>
+  <dd><%= @request.partemaquina %></dd>
+
+  <dt>Descripcion por no realizado:</dt>
+  <dd><%= @request.descripcionNoRealizado %></dd>
+
+  <dt>Fecha estimada:</dt>
+  <dd><%= @request.fechaEstimada %></dd>
+
+  <dt>Descripcion de ejecucion:</dt>
+  <dd><%= @request.descripcionEjecucion %></dd>
+
+  <dt>Fecha y hora de inicio:</dt>
+  <dd><%= fechaHoraInicio %></dd>
+
+  <dt>Fecha y hora de fin:</dt>
+  <dd><%= fechaHoraFin %></dd>
+
+  <dt>Ejecutor:</dt>
+  <dd><%= @request.ejecutor %></dd>
+
+  <dt>Descripcion de pendiente:</dt>
+  <dd><%= @request.descripcionPendiente %></dd>
+
+  <dt>Estado:</dt>
+  <dd><%= @request.estado %></dd>
+
+</dl>

@@ -1,0 +1,59 @@
+<% if @request.errors.any? %>
+    <div class="alert alert-danger alert-dismissable" role="alert">
+      <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+      <h4><%= pluralize(@request.errors.count, "error") %> evitaron que este requerimiento fuera guardado:</h4>
+
+      <ul>
+      <% @request.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :solicitante, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.text_field :solicitante, id: "autoSolicitante",class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :category_id, "Categoria", class: "col-sm-2 control-label" %>
+    <div class="col-sm-10" id="normalCategory">
+      <%= f.collection_select(:category_id, @categories, :id, :nombre, class: "form-control") %>
+      <br><%= link_to "<span class='glyphicon glyphicon-plus'></span> Agregar Categoria".html_safe, '#', :onclick => "document.getElementById('addCategory').style.display = 'block';document.getElementById('normalCategory').style.display = 'none';" %>
+    </div>
+    
+    <div class="oculto col-sm-10" id="addCategory">
+      <input type="text" name="nuevaCategoria" id="nuevaCategoria"> <%= link_to "<< Volver a Lista de Categorias", '#', :onclick => "document.getElementById('normalCategory').style.display = 'block';document.getElementById('addCategory').style.display = 'none';document.getElementById('nuevaCategoria').value = ''; " %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :machine_id,"Maquina", class: "col-sm-2 control-label" %>
+    <div class="col-sm-10" id="normalMachine">
+      <%= f.collection_select(:machine_id, @machines, :id, :nombre, class: "form-control") %>
+      <br><%= link_to "<span class='glyphicon glyphicon-plus'></span> Agregar Maquina".html_safe, '#', :onclick => "document.getElementById('addMachine').style.display = 'block';document.getElementById('normalMachine').style.display = 'none';" %>
+    </div>
+    <div class="oculto col-sm-10" id="addMachine">
+      <input type="text" name="nuevaMaquina" id="nuevaMaquina"> <%= link_to "<< Volver a Lista de Maquinas", '#', :onclick => "document.getElementById('normalMachine').style.display = 'block';document.getElementById('addMachine').style.display = 'none';document.getElementById('nuevaMaquina').value = ''; " %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :descripcion, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.text_area :descripcion, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :importancia, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.select(:importancia, ["Baja","Media","Alta"], class: "form-control") %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :mail, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.text_field :mail, id: "autoMail", class: "form-control" %>
+    </div>
+  </div>

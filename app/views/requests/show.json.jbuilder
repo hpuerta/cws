@@ -1,0 +1,1 @@
+json.extract! @request, :id, :solicitante, :descripcion, :importancia, :mail, :partemaquina, :descripcionNoRealizado, :fechaEstimada, :descripcionEjecucion, :fechaHoraInicio, :fechaHoraFin, :ejecutor, :descripcionPendiente, :estado, :created_at, :updated_at

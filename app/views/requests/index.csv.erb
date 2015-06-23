@@ -1,0 +1,11 @@
+
+<%- headers = ['Fecha de requerimiento','Solicitante', 'Descripcion', 'Categoria', 'Maquina', 'Importancia', 'Mail', 'Parte Maquina', 'Descripcion No Realizado', 'Fecha Estimada', 'Descripcion Ejecucion', 'Fecha Hora Inicio', 'Fecha Hora Fin', 'Ejecutor', 'Descripcion Pendiente', 'Estado'] -%>
+<%= CSV.generate_line(['sep=;'], :row_sep => "").html_safe %>
+<%= CSV.generate_line(headers, :col_sep => ";", :row_sep => "").html_safe %>
+<%- @requests.each do |request| -%>
+	<%-
+		fechaHoraInicio = request.fechaHoraInicio.blank? ? request.fechaHoraInicio : date_format(request.fechaHoraInicio)
+		fechaHoraFin = request.fechaHoraFin.blank? ? request.fechaHoraFin : date_format(request.fechaHoraFin)
+	-%>
+	<%= CSV.generate_line([date_format(request.created_at), request.solicitante, request.descripcion, request.category.nombre, request.machine.nombre, request.importancia, request.mail, request.partemaquina, request.descripcionNoRealizado, request.fechaEstimada, request.descripcionEjecucion, fechaHoraInicio, fechaHoraFin, request.ejecutor, request.descripcionPendiente, request.estado], :col_sep => ";", :row_sep => "").html_safe %>
+<%- end -%>

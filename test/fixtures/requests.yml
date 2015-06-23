@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  solicitante: MyString
+  descripcion: MyText
+  importancia: 1
+  mail: MyString
+  partemaquina: MyString
+  descripcionNoRealizado: MyText
+  fechaEstimada: 2015-05-26
+  descripcionEjecucion: MyText
+  fechaHoraInicio: 2015-05-26 11:08:15
+  fechaHoraFin: 2015-05-26 11:08:15
+  ejecutor: MyString
+  descripcionPendiente: MyText
+  estado: MyString
+
+two:
+  solicitante: MyString
+  descripcion: MyText
+  importancia: 1
+  mail: MyString
+  partemaquina: MyString
+  descripcionNoRealizado: MyText
+  fechaEstimada: 2015-05-26
+  descripcionEjecucion: MyText
+  fechaHoraInicio: 2015-05-26 11:08:15
+  fechaHoraFin: 2015-05-26 11:08:15
+  ejecutor: MyString
+  descripcionPendiente: MyText
+  estado: MyString

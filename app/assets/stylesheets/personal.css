@@ -1,0 +1,25 @@
+.oculto{
+		display: none;
+	}
+
+.Alta{
+	display: inline-block;
+    width: 20px;
+    height: 20px;
+    background: red;
+}
+.Media{
+	display: inline-block;
+    width: 20px;
+    height: 20px;
+    background: yellow;
+}
+.Baja{
+	display: inline-block;
+    width: 20px;
+    height: 20px;
+    background: green;
+}
+.blanco{
+    color: #FFFFFF;
+}

@@ -1,0 +1,71 @@
+<%= form_for(@request, html: { class: "form-horizontal", role: "form" }) do |f| %>
+  <%= render partial: 'baseForm', locals: {f: f} %>
+  <div class="form-group">
+    <%= f.label :type_ids, "Tipo", :class => 'control-label col-md-2' %>
+    <div class="col-sm-10">
+
+      <%= f.collection_check_boxes(:type_ids, @types, :id, :nombre) do |b|
+        b.label { b.check_box + " " + b.label + " "}
+      end%>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :partemaquina,"Parte de Maquina", class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.text_field :partemaquina, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :descripcionNoRealizado,"Descripcion por no realizado", class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.text_area :descripcionNoRealizado, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :fechaEstimada, "Fecha Estimada", class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.date_select :fechaEstimada, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :descripcionEjecucion,"Descripcion de Ejecucion", class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.text_area :descripcionEjecucion, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :fechaHoraInicio,"Fecha y hora de Inicio", class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.datetime_select :fechaHoraInicio, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :fechaHoraFin,"Fecha y hora de Fin", class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.datetime_select :fechaHoraFin, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :ejecutor, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.text_field :ejecutor, id: "autoEjecutor", class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :descripcionPendiente,"Descripcion de Pendiente", class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.text_area :descripcionPendiente, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :estado, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.select(:estado, ["Pendiente","Solucionado"], class: "form-control") %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <%= f.submit "Actualizar requerimiento",class: "btn btn-primary" %>
+    </div>
+  </div>
+<% end %>
